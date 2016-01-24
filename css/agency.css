@@ -2,8 +2,12 @@ body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.team-bio,
 .text-muted {
   color: #777;
+}
+.team-bio {
+  padding-top: 20px;
 }
 .text-primary {
   color: #60549b;
