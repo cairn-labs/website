@@ -1,4 +1,7 @@
 <?php
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
+
 // Check for empty fields
 if(empty($_POST['name'])  		||
    empty($_POST['email']) 		||
@@ -16,11 +19,17 @@ $phone = $_POST['phone'];
 $message = $_POST['message'];
 
 // Create the email and send the message
-$to = 'sbrother@gmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+$to = 'sbrother@gmail.com'; 
 $email_subject = "Cairn Labs Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-$headers = "From: noreply@cairnlabs.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-$headers .= "Reply-To: $email_address";
-mail($to,$email_subject,$email_body,$headers);
+$from = 'noreply@sandbox222571a8071848e98d118aaba9201f47.mailgun.org';
+
+$mg = new Mailgun(getenv('MAILGUN_KEY'));
+$domain = "sandbox222571a8071848e98d118aaba9201f47.mailgun.org";
+$mg->sendMessage($domain, array('from'    => $from, 
+                                'to'      => $to, 
+                                'subject' => $email_subject, 
+                                'text'    => $email_body));
+
 return true;
 ?>
