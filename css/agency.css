@@ -162,6 +162,11 @@ fieldset[disabled] .btn-xl.active {
   background-color: #222;
   border-color: transparent;
 }
+.navbar-default img.logo {
+  width: 40px;
+  height: 40px;
+  margin-top: -10px;
+}
 .navbar-default .navbar-brand {
   color: #60549b;
 }
@@ -222,6 +227,14 @@ fieldset[disabled] .btn-xl.active {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
   }
+  .navbar-default img.logo {
+    width: 50px;
+    height: 50px;
+    margin-top: -16px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
   .navbar-default .navbar-nav > .active > a {
     border-radius: 3px;
   }
@@ -231,6 +244,11 @@ fieldset[disabled] .btn-xl.active {
   }
   .navbar-default.navbar-shrink .navbar-brand {
     font-size: 1.5em;
+  }
+  .navbar-default.navbar-shrink img.logo {
+    width: 40px;
+    height: 40px;
+    margin-top: -10px;
   }
 }
 header {
